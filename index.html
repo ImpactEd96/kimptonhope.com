@@ -180,7 +180,9 @@
     #and-they-lived-happily-ever-after {
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
+      height: calc(100vh - 50px);
+      min-height: 30rem;
+      padding: 0;
     }
 
     #and-they-lived-happily-ever-after .hero-bg {
@@ -196,6 +198,25 @@
       object-fit: cover;
       object-position: 44% 50%;
       display: block;
+      filter: blur(20px);
+      transform: scale(1.1);
+    }
+
+    #and-they-lived-happily-ever-after .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #and-they-lived-happily-ever-after .hero-video video {
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     #and-they-lived-happily-ever-after .hero-content {
@@ -203,7 +224,7 @@
       top: 28%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1;
+      z-index: 2;
       text-align: center;
       width: 100%;
       max-width: 60rem;
@@ -568,7 +589,11 @@
     <!-- Hero -->
     <section id="and-they-lived-happily-ever-after">
       <div class="hero-bg">
-        <video src="videos/f9352db21235f024cd8958ce55f1a054.mp4" playsinline autoplay muted loop preload="none">
+        <video src="videos/f9352db21235f024cd8958ce55f1a054.mp4" playsinline autoplay muted loop preload="auto">
+        </video>
+      </div>
+      <div class="hero-video">
+        <video src="videos/f9352db21235f024cd8958ce55f1a054.mp4" playsinline autoplay muted loop preload="auto">
         </video>
       </div>
       <div class="hero-content">
