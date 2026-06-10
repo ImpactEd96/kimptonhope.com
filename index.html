@@ -235,6 +235,7 @@
       max-width: 360px;
       position: relative;
       overflow: hidden;
+      aspect-ratio: 9 / 16;
     }
 
     .video_container video {
@@ -305,11 +306,21 @@
 
     .wedding-party-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 2rem;
       width: 100%;
       max-width: 64rem;
       margin-top: 2rem;
+    }
+
+    .party-card:nth-child(1),
+    .party-card:nth-child(2),
+    .party-card:nth-child(n+9) {
+      grid-column: span 3;
+    }
+
+    .party-card:nth-child(n+3):nth-child(-n+8) {
+      grid-column: span 2;
     }
 
     .party-card {
@@ -442,6 +453,16 @@
       color: #ffffff;
     }
 
+    #rsvp .video_container {
+      max-width: 640px;
+      aspect-ratio: 16 / 9;
+    }
+
+    #rsvp .video_container video {
+      border-radius: 40px;
+      object-position: bottom;
+    }
+
     /* ========== Section CTA ========== */
     .section-cta {
       display: inline-block;
@@ -485,6 +506,7 @@
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 1.5rem;
       }
+      .party-card { grid-column: auto; }
       .party-card img { max-width: 140px; }
       .party-name { font-size: 1.1em; }
       .party-role { font-size: 0.8em; }
@@ -508,6 +530,7 @@
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 1rem;
       }
+      .party-card { grid-column: auto; }
     }
   </style>
 </head>
@@ -594,12 +617,6 @@
         </div>
 
         <a class="section-cta" href="https://withjoy.com/jessie-and-eddie-mar-25/rsvp" target="_blank" rel="noopener">Click to rsvp</a>
-      </div>
-    </section>
-
-    <!-- The Wedding Party -->
-    <section id="the-wedding-party">
-      <div class="section-content">
         <div class="story-videos">
           <div class="video_container">
             <video src="videos/eff5fa4f39443fc9aee3954c3d9c31f8.mp4" autoplay playsinline muted loop preload="auto"></video>
@@ -611,6 +628,12 @@
             <video src="videos/6396bcefa25a7727e7772076d856edd8.mp4" autoplay playsinline muted loop preload="auto"></video>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- The Wedding Party -->
+    <section id="the-wedding-party">
+      <div class="section-content">
         <h2 class="section-heading">The Wedding Party</h2>
       </div>
       <div class="wedding-party-grid">
@@ -687,6 +710,17 @@
           <p class="party-desc">Jessie's first love, and the man delighted to finally have a son.</p>
         </div>
       </div>
+      <div class="story-videos">
+        <div class="video_container">
+          <video src="videos/0d2181a18b698024b551c0033f47f70e.mp4" autoplay playsinline muted loop preload="auto"></video>
+        </div>
+        <div class="video_container">
+          <video src="videos/8fb53c2924158e0c4b79cbd04044584c.mp4" autoplay playsinline muted loop preload="auto"></video>
+        </div>
+        <div class="video_container">
+          <video src="videos/5d61d001cf835382b1b427e1d59881de.mp4" autoplay playsinline muted loop preload="auto"></video>
+        </div>
+      </div>
     </section>
 
     <!-- Just For Fun -->
@@ -745,6 +779,11 @@
     <section id="rsvp">
       <div class="section-content">
         <p class="rsvp-heading">And So It Begins...</p>
+        <div class="story-videos">
+          <div class="video_container">
+            <video src="videos/a67ba203c00db8b116586de7e9d795c4.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+        </div>
         <a class="rsvp-link" href="https://withjoy.com/jessie-and-eddie-mar-25/rsvp" target="_blank" rel="noopener">Click to rsvp</a>
       </div>
     </section>

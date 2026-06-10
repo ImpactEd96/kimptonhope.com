@@ -10,12 +10,12 @@ Maps the hash-based filenames from the Canva export to their purpose and locatio
 | `40ede13270bfef4a9397ba7bd4c2e744.mp4` | The Story Of Us | ✅ |
 | `8859fcec2d463898ce8011b63701d39d.mp4` | The Story Of Us | ✅ |
 | `fe5e64a05c63521156e3c5959533f501.mp4` | The Story Of Us | ✅ |
-| `eff5fa4f39443fc9aee3954c3d9c31f8.mp4` | The Wedding Party | ✅ |
-| `dc2748fd0614c3114b70d9a9a49b795b.mp4` | The Wedding Party | ✅ |
-| `6396bcefa25a7727e7772076d856edd8.mp4` | The Wedding Party | ✅ |
-| `0d2181a18b698024b551c0033f47f70e.mp4` | Where We Will Say I Do | ✅ |
-| `8fb53c2924158e0c4b79cbd04044584c.mp4` | Where We Will Say I Do | ✅ |
-| `5d61d001cf835382b1b427e1d59881de.mp4` | Where We Will Say I Do | ✅ |
+| `eff5fa4f39443fc9aee3954c3d9c31f8.mp4` | Where We Will Say I Do | ✅ |
+| `dc2748fd0614c3114b70d9a9a49b795b.mp4` | Where We Will Say I Do | ✅ |
+| `6396bcefa25a7727e7772076d856edd8.mp4` | Where We Will Say I Do | ✅ |
+| `0d2181a18b698024b551c0033f47f70e.mp4` | The Wedding Party | ✅ |
+| `8fb53c2924158e0c4b79cbd04044584c.mp4` | The Wedding Party | ✅ |
+| `5d61d001cf835382b1b427e1d59881de.mp4` | The Wedding Party | ✅ |
 | `a67ba203c00db8b116586de7e9d795c4.mp4` | RSVP | ✅ |
 
 ## Fonts
