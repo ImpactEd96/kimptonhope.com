@@ -77,6 +77,33 @@
     }
     .back-link:hover { color: #000000; }
 
+    .gallery-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-controls button {
+      font-family: 'Sans', sans-serif;
+      font-size: 0.9em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.75rem 2rem;
+      border: 2px solid #000;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .gallery-controls button:hover {
+      background: #000;
+      color: #fff;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, 300px);
@@ -201,6 +228,11 @@
       <h1 class="section-heading">Our Wedding Gallery</h1>
       <p class="section-sub">Thank you for celebrating with us &mdash; here are some of our favourite moments</p>
 
+      <div class="gallery-controls">
+        <button id="sortBtn">Sort by order</button>
+        <button id="shuffleBtn">Randomize</button>
+      </div>
+
       <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </section>
@@ -218,29 +250,56 @@
     var THUMB_DIR = '/photos/thumbs/';
     var FULL_DIR  = '/photos/full/';
 
-    var grid = document.getElementById('galleryGrid');
-    var filenames = [];
-
+    var ordered = [];
     for (var i = 1; i <= PHOTO_COUNT; i++) {
-      filenames.push('photo-' + String(i).padStart(4, '0') + '.jpg');
+      ordered.push('photo-' + String(i).padStart(4, '0') + '.jpg');
     }
 
-    filenames.forEach(function(name, index) {
-      var item = document.createElement('div');
-      item.className = 'gallery-item';
+    var filenames = ordered.slice();
+    var grid = document.getElementById('galleryGrid');
 
-      var img = document.createElement('img');
-      img.src = THUMB_DIR + name;
-      img.alt = 'Wedding photo ' + (index + 1);
-      img.loading = 'lazy';
-      img.dataset.index = index;
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+      }
+      return arr;
+    }
 
-      img.addEventListener('click', function() {
-        openLightbox(parseInt(this.dataset.index));
+    function render() {
+      grid.innerHTML = '';
+      filenames.forEach(function(name, index) {
+        var item = document.createElement('div');
+        item.className = 'gallery-item';
+
+        var img = document.createElement('img');
+        img.src = THUMB_DIR + name;
+        img.alt = 'Wedding photo ' + (index + 1);
+        img.loading = 'lazy';
+        img.dataset.index = index;
+
+        img.addEventListener('click', function() {
+          openLightbox(parseInt(this.dataset.index));
+        });
+
+        item.appendChild(img);
+        grid.appendChild(item);
       });
+    }
 
-      item.appendChild(img);
-      grid.appendChild(item);
+    shuffle(filenames);
+    render();
+
+    document.getElementById('sortBtn').addEventListener('click', function() {
+      filenames = ordered.slice();
+      render();
+    });
+
+    document.getElementById('shuffleBtn').addEventListener('click', function() {
+      shuffle(filenames);
+      render();
     });
 
     var lightbox = document.getElementById('lightbox');
