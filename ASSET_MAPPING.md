@@ -33,11 +33,11 @@ Maps the hash-based filenames from the Canva export to their purpose and locatio
 
 | Image | Person | Role |
 |-------|--------|------|
-| `70530b0cc3a904bc20b854460f1ef17a.jpg` | Isaiah Paulley | Best Man |
+| `cf7b9cbac5e6a80570f229c4ec2ddf5c.jpg` | Isaiah Paulley | Best Man |
 | `3a6dd641825b11707b1fbf36575c3539.jpg` | Eve Hope | Maid of Honor |
 | `510a2b51753fadff838ee8917fd95c06.jpg` | Tom Cowling | Groomsman |
-| `e41b37cad0ac40a1e9b8ab0a3718b3ad.jpg` | Tom Ross | Forever our Third Wheel |
-| `5324c9e7c2d1becd49aacbea9baddcc9.jpg` | Tony Brunton | — |
+| `7fc73fb12d617e74bae71141fc5c425a.jpg` | Tom Ross | Forever our Third Wheel |
+| `e41b37cad0ac40a1e9b8ab0a3718b3ad.jpg` | Tony Brunton | — |
 | `e32186f3a303f76fe593eb1b01d73edc.jpg` | Courtney Cowling | Bridesmaid |
 | `962db361a96f222c180a1be5a53112dc.jpg` | Melanie Fuller | — |
 | `44735ff4edcb4a5515b551ff83b063d6.jpg` | Tina Wong | Teacher Tina |
@@ -64,9 +64,9 @@ The following images exist on disk but could not be confidently mapped. Likely u
 - `4337b955d8a9171884e3beeba37858bc.jpg`
 - `613c688babcc16244863e600c9d7298b.jpg`
 - `725110db6c416bb9e8812bbe28b35e32.jpg`
+- `5324c9e7c2d1becd49aacbea9baddcc9.jpg`
+- `70530b0cc3a904bc20b854460f1ef17a.jpg`
 - `7ad477e235a97744eb52b9c73f847db7.jpg`
-- `7fc73fb12d617e74bae71141fc5c425a.jpg`
 - `9f48d0182b79a26e2b9da49b1f672041.jpg`
 - `af7e42c38670ea341922c28deb6d2bb0.jpg`
-- `cf7b9cbac5e6a80570f229c4ec2ddf5c.jpg`
 - `f19d11029972bcfb4e36cac010ddc378.jpg`
