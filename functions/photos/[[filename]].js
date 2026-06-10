@@ -1,15 +1,24 @@
 export async function onRequest(context) {
-  const { request, env, params } = context;
+  const { request, env, params, functionPath } = context;
   const filename = params.filename;
 
+  const debug = {
+    url: request.url,
+    functionPath,
+    filename,
+    filenameType: typeof filename,
+    filenameIsArray: Array.isArray(filename),
+    filenameJSON: JSON.stringify(filename),
+  };
+
   if (!filename || filename.includes('..')) {
-    return new Response('Forbidden', { status: 403 });
+    return new Response(JSON.stringify({ error: 'Forbidden', ...debug }), { status: 403, headers: { 'content-type': 'application/json' } });
   }
 
   const object = await env.PHOTOS.get(filename);
 
   if (!object) {
-    return new Response('Not found', { status: 404 });
+    return new Response(JSON.stringify({ error: 'Not found in R2', key: filename, ...debug }), { status: 404, headers: { 'content-type': 'application/json' } });
   }
 
   const headers = new Headers();
