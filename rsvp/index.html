@@ -79,12 +79,14 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, 300px);
       gap: 1rem;
+      justify-content: center;
       width: 100%;
     }
 
     .gallery-item {
+      width: 300px;
       position: relative;
       overflow: hidden;
       border-radius: 8px;
@@ -179,7 +181,7 @@
       html { font-size: 14px; }
       section { padding: 3rem 1rem; }
       .section-heading { font-size: 2.2em; }
-      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, 140px); gap: 0.5rem; }
       .lightbox { padding: 1rem; }
       .lightbox-prev { left: 0.25rem; font-size: 2em; }
       .lightbox-next { right: 0.25rem; font-size: 2em; }
@@ -220,7 +222,7 @@
     var filenames = [];
 
     for (var i = 1; i <= PHOTO_COUNT; i++) {
-      filenames.push('photo-' + String(i).padStart(4, '0'));
+      filenames.push('photo-' + String(i).padStart(4, '0') + '.jpg');
     }
 
     filenames.forEach(function(name, index) {
