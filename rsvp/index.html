@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Wedding Gallery — Eddie & Jessie</title>
+  <meta name="description" content="Photo gallery from Eddie & Jessie's wedding">
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32">
+
+  <style>
+    @font-face { font-family: 'Display'; src: url(../fonts/display.woff2); font-style: normal; font-weight: 400; }
+    @font-face { font-family: 'Display'; src: url(../fonts/display.woff2); font-style: normal; font-weight: 700; }
+    @font-face { font-family: 'Display'; src: url(../fonts/display.woff2); font-style: italic; font-weight: 400; }
+    @font-face { font-family: 'Display'; src: url(../fonts/display.woff2); font-style: italic; font-weight: 700; }
+    @font-face { font-family: 'Sans'; src: url(../fonts/sans-regular.woff2); font-style: normal; font-weight: 400; }
+    @font-face { font-family: 'Sans'; src: url(../fonts/sans-bold.woff2); font-style: normal; font-weight: 700; }
+    @font-face { font-family: 'Sans'; src: url(../fonts/sans-italic.woff2); font-style: italic; font-weight: 400; }
+    @font-face { font-family: 'Sans'; src: url(../fonts/sans-italic-bold.woff2); font-style: italic; font-weight: 700; }
+    @font-face { font-family: 'Accent'; src: url(../fonts/accent.woff2); font-style: normal; font-weight: 400; }
+    @font-face { font-family: 'Accent'; src: url(../fonts/accent.woff2); font-style: normal; font-weight: 700; }
+    @font-face { font-family: 'Accent'; src: url(../fonts/accent.woff2); font-style: italic; font-weight: 400; }
+    @font-face { font-family: 'Accent'; src: url(../fonts/accent.woff2); font-style: italic; font-weight: 700; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      margin: 0;
+      font-family: 'Sans', sans-serif;
+      background-color: #fafafa;
+      color: #000000;
+    }
+
+    section {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .section-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      max-width: 80rem;
+    }
+
+    .section-heading {
+      font-family: 'Accent', serif;
+      font-size: 3.5em;
+      letter-spacing: 0.157em;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.2em;
+      color: #666666;
+      margin: 0 0 3rem;
+      line-height: 1.6;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Sans', sans-serif;
+      font-size: 0.9em;
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #000000; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 2.5em;
+      color: #ffffff;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      background: none;
+      border: none;
+      font-family: 'Sans', sans-serif;
+    }
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: #ffffff;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      background: none;
+      border: none;
+      padding: 1rem;
+      line-height: 1;
+      font-family: 'Sans', sans-serif;
+    }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+    .lightbox-prev:hover,
+    .lightbox-next:hover { opacity: 1; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1em;
+      color: #ffffff;
+      opacity: 0.7;
+      font-family: 'Sans', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      html { font-size: 14px; }
+      section { padding: 3rem 1rem; }
+      .section-heading { font-size: 2.2em; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
+      .lightbox { padding: 1rem; }
+      .lightbox-prev { left: 0.25rem; font-size: 2em; }
+      .lightbox-next { right: 0.25rem; font-size: 2em; }
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 12px; }
+      .section-heading { font-size: 1.8em; }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="gallery">
+    <div class="section-content">
+      <a class="back-link" href="../">&larr; Back to main page</a>
+      <h1 class="section-heading">Our Wedding Gallery</h1>
+      <p class="section-sub">Thank you for celebrating with us &mdash; here are some of our favourite moments</p>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev">&lsaquo;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-next" id="lightboxNext">&rsaquo;</button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
+  </div>
+
+  <script>
+    var PHOTO_COUNT = 333;
+    var THUMB_DIR = '/photos/thumbs/';
+    var FULL_DIR  = '/photos/full/';
+
+    var grid = document.getElementById('galleryGrid');
+    var filenames = [];
+
+    for (var i = 1; i <= PHOTO_COUNT; i++) {
+      filenames.push('photo-' + String(i).padStart(4, '0') + '.jpg');
+    }
+
+    filenames.forEach(function(name, index) {
+      var item = document.createElement('div');
+      item.className = 'gallery-item';
+
+      var img = document.createElement('img');
+      img.src = THUMB_DIR + name;
+      img.alt = 'Wedding photo ' + (index + 1);
+      img.loading = 'lazy';
+      img.dataset.index = index;
+
+      img.addEventListener('click', function() {
+        openLightbox(parseInt(this.dataset.index));
+      });
+
+      item.appendChild(img);
+      grid.appendChild(item);
+    });
+
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxClose = document.getElementById('lightboxClose');
+    var lightboxPrev = document.getElementById('lightboxPrev');
+    var lightboxNext = document.getElementById('lightboxNext');
+    var lightboxCounter = document.getElementById('lightboxCounter');
+    var currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = FULL_DIR + filenames[currentIndex];
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + filenames.length;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + filenames.length) % filenames.length;
+      lightboxImg.src = FULL_DIR + filenames[currentIndex];
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + filenames.length;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % filenames.length;
+      lightboxImg.src = FULL_DIR + filenames[currentIndex];
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + filenames.length;
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', prevImage);
+    lightboxNext.addEventListener('click', nextImage);
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  </script>
+</body>
+</html>
