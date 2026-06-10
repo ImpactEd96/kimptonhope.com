@@ -215,6 +215,48 @@
       margin: 1.5rem 0;
     }
 
+    .story-videos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .video_container {
+      flex: 1 1 280px;
+      max-width: 360px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video_container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .story-videos .video_container:nth-child(-n+2) video {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .playPauseButton {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .playPauseButton .playIcon {
+      width: 50px;
+      height: 50px;
+    }
+
     /* ========== Where We Will Say I Do ========== */
     #where-we-will-say-i-do {
       background-color: #fafafa;
@@ -493,6 +535,17 @@
         <h2 class="section-heading">The Story Of Us</h2>
         <p class="story-text">The story of Eddie and Jessie began in a way that only fate could orchestrate. From their first meeting, it was clear this was something special. Through adventures, challenges, and countless memories, their love grew stronger with each passing day.</p>
         <a class="section-cta" href="https://withjoy.com/jessie-and-eddie-mar-25/rsvp" target="_blank" rel="noopener">Click to rsvp</a>
+        <div class="story-videos">
+          <div class="video_container">
+            <video src="videos/40ede13270bfef4a9397ba7bd4c2e744.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+          <div class="video_container">
+            <video src="videos/8859fcec2d463898ce8011b63701d39d.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+          <div class="video_container">
+            <video src="videos/fe5e64a05c63521156e3c5959533f501.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -544,6 +597,17 @@
     <!-- The Wedding Party -->
     <section id="the-wedding-party">
       <div class="section-content">
+        <div class="story-videos">
+          <div class="video_container">
+            <video src="videos/0d2181a18b698024b551c0033f47f70e.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+          <div class="video_container">
+            <video src="videos/8fb53c2924158e0c4b79cbd04044584c.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+          <div class="video_container">
+            <video src="videos/5d61d001cf835382b1b427e1d59881de.mp4" autoplay playsinline muted loop preload="auto"></video>
+          </div>
+        </div>
         <h2 class="section-heading">The Wedding Party</h2>
       </div>
       <div class="wedding-party-grid">
